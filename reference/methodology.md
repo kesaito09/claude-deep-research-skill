@@ -106,15 +106,21 @@ Use Task tool with general-purpose agents (3-5 agents) for:
 - Repository analysis (code examples, implementations)
 - Specialized domain research (requires multi-step investigation)
 
+**Sub-agent output format:** Require all sub-agents to return structured evidence, not free text:
+```json
+{"claim": "specific claim text", "evidence_quote": "exact quote from source", "source_url": "https://...", "source_title": "...", "confidence": 0.85}
+```
+This prevents synthesis fatigue when merging results from 3-5 agents.
+
 **Example parallel execution (using WebSearch):**
 ```
 [Single message with multiple tool calls]
 - WebSearch(query="quantum computing 2025 state of the art")
 - WebSearch(query="quantum computing limitations challenges")
-- WebSearch(query="quantum computing commercial applications 2024-2025")
+- WebSearch(query="quantum computing commercial applications [CURRENT_YEAR]")
 - WebSearch(query="quantum computing vs classical comparison")
 - WebSearch(query="quantum error correction research", allowed_domains=["arxiv.org", "scholar.google.com"])
-- Task(subagent_type="general-purpose", description="Analyze quantum computing papers", prompt="Deep dive into quantum computing academic papers from 2024-2025, extract key findings and methodologies")
+- Task(subagent_type="general-purpose", description="Analyze quantum computing papers", prompt="Deep dive into quantum computing academic papers from [CURRENT_YEAR], extract key findings and methodologies")
 - Task(subagent_type="general-purpose", description="Industry analysis", prompt="Analyze quantum computing industry reports and market data, identify commercial applications")
 - Task(subagent_type="general-purpose", description="Technical challenges", prompt="Extract technical limitations and challenges from quantum computing research")
 ```
@@ -122,9 +128,9 @@ Use Task tool with general-purpose agents (3-5 agents) for:
 **Example parallel execution (using Exa MCP - if available):**
 ```
 [Single message with multiple tool calls]
-- mcp__Exa__exa_search(query="quantum computing state of the art", type="neural", num_results=10, start_published_date="2024-01-01")
+- mcp__Exa__exa_search(query="quantum computing state of the art", type="neural", num_results=10, start_published_date="[use current year from Step 0]")
 - mcp__Exa__exa_search(query="quantum computing limitations", type="keyword", num_results=10)
-- mcp__Exa__exa_search(query="quantum computing commercial", type="auto", num_results=10, start_published_date="2024-01-01")
+- mcp__Exa__exa_search(query="quantum computing commercial", type="auto", num_results=10, start_published_date="[use current year from Step 0]")
 - mcp__Exa__exa_search(query="quantum error correction", type="neural", num_results=10, include_domains=["arxiv.org"])
 - Task(subagent_type="general-purpose", description="Academic analysis", prompt="Analyze quantum computing academic papers")
 ```
@@ -328,6 +334,15 @@ As results arrive:
 - What alternative explanations exist?
 - What biases might be present?
 - What counterfactuals should be considered?
+
+**Persona-Based Critique (Deep/UltraDeep only):**
+Simulate 2-3 specific critic personas relevant to the topic:
+- "Skeptical Practitioner" — Would someone doing this daily trust these findings?
+- "Adversarial Reviewer" — What would a peer reviewer reject?
+- "Implementation Engineer" — Can these recommendations actually be executed?
+
+**Critical Gap Loop-Back:**
+If critique identifies a critical knowledge gap (not just a writing issue), return to Phase 3 with targeted "delta-queries" before proceeding to Phase 7. Time-box to 3-5 minutes. This prevents publishing reports with known blind spots.
 
 **Output:** Critique report with improvement recommendations
 
