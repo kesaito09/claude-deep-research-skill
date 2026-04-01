@@ -78,9 +78,9 @@ Mode Selection
 - Bibliography (COMPLETE - every citation, no placeholders)
 - Methodology Appendix
 
-**Output files (all to `$PWD/research/[topic-slug]/`):**
-- Use kebab-case directory names (lowercase, hyphen-separated, e.g. `quantum-computing`, `postgresql-vs-supabase`)
-- No sequential numbers, no dates in directory name
+**Output files (all to `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/`):**
+- NNN = zero-padded sequential number (001, 002, ...) based on existing folders in `$PWD/research/`
+- Topic = descriptive name in PascalCase or snake_case (e.g. `Quantum_Computing`)
 - Markdown only
 
 **Quality standards:**

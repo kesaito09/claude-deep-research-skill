@@ -3,7 +3,7 @@
 > **Fork of [199-biotechnologies/claude-deep-research-skill](https://github.com/199-biotechnologies/claude-deep-research-skill)**
 >
 > ### Changes from upstream
-> - **Output directory**: Reports are saved to `$PWD/research/[topic-slug]/` using kebab-case naming (e.g. `quantum-computing`) instead of `~/Documents/`.
+> - **Output directory**: Reports are saved to `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/` (e.g. `001_Quantum_Computing_Research_20260401`) instead of `~/Documents/`.
 > - **Markdown only**: HTML/PDF generation is removed. Only Markdown reports are output.
 
 Enterprise-grade research engine for Claude Code. Produces citation-backed reports with source credibility scoring, multi-provider search, and automated validation.
@@ -59,7 +59,7 @@ Key features:
 
 ## Output
 
-Reports saved to `$PWD/research/[topic-slug]/` (kebab-case):
+Reports saved to `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/`:
 - Markdown only
 
 Reports >18K words auto-continue via recursive agent spawning with context preservation.

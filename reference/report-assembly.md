@@ -29,9 +29,10 @@
 ### Phase 8.1: Setup
 
 ```bash
-# Create folder: $PWD/research/[topic-slug]/
-# Use kebab-case (lowercase, hyphen-separated, e.g. quantum-computing)
-mkdir -p $PWD/research/[topic-slug]
+# Create folder: $PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/
+# NNN = next sequential number (001, 002, ...) based on existing folders
+# Determine next number: ls $PWD/research/ | grep -oP '^\d+' | sort -n | tail -1, then +1
+mkdir -p $PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]
 
 # Initialize markdown file with frontmatter
 # Path: [folder]/research_report_[YYYYMMDD]_[slug].md
@@ -93,11 +94,11 @@ Update sources.json after each section. This survives context compaction and ena
 ## File Organization
 
 **1. Create dedicated folder:**
-- Location: `$PWD/research/[topic-slug]/`
+- Location: `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/`
 - Clean topic name (remove special chars, use underscores)
 
 **2. File naming convention:**
-- `research_report.md`
+- `research_report_[YYYYMMDD]_[topic_slug].md`
 
 ---
 
