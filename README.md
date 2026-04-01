@@ -1,4 +1,9 @@
-# Deep Research Skill for Claude Code
+# Deep Research Skill for Claude Code (Fork)
+
+> **Fork of [199-biotechnologies/claude-deep-research-skill](https://github.com/199-biotechnologies/claude-deep-research-skill)**
+>
+> ### Changes from upstream
+> - **Output directory**: Reports are saved to `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/` (current working directory) instead of `~/Documents/`. Folders are numbered sequentially (`001_`, `002_`, ...) to keep research organized chronologically.
 
 Enterprise-grade research engine for Claude Code. Produces citation-backed reports with source credibility scoring, multi-provider search, and automated validation.
 
@@ -6,7 +11,7 @@ Enterprise-grade research engine for Claude Code. Produces citation-backed repor
 
 ```bash
 # Clone into Claude Code skills directory
-git clone https://github.com/199-biotechnologies/claude-deep-research-skill.git ~/.claude/skills/deep-research
+git clone https://github.com/kesaito09/claude-deep-research-skill.git ~/.claude/skills/deep-research
 ```
 
 No additional dependencies required for basic usage.
