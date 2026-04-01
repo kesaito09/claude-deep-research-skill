@@ -4,6 +4,7 @@
 >
 > ### Changes from upstream
 > - **Output directory**: Reports are saved to `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/` (current working directory) instead of `~/Documents/`. Folders are numbered sequentially (`001_`, `002_`, ...) to keep research organized chronologically.
+> - **Markdown only**: HTML/PDF generation is removed. Only Markdown reports are output.
 
 Enterprise-grade research engine for Claude Code. Produces citation-backed reports with source credibility scoring, multi-provider search, and automated validation.
 
@@ -59,9 +60,7 @@ Key features:
 ## Output
 
 Reports saved to `$PWD/research/[NNN_][Topic]_Research_[Date]/` (NNN = sequential number):
-- Markdown (primary source of truth)
-- HTML (McKinsey-style, auto-opened in browser)
-- PDF (professional print via WeasyPrint)
+- Markdown only
 
 Reports >18K words auto-continue via recursive agent spawning with context preservation.
 

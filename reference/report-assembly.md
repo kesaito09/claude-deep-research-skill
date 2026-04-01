@@ -98,12 +98,7 @@ Update sources.json after each section. This survives context compaction and ena
 - Clean topic name (remove special chars, use underscores)
 
 **2. File naming convention:**
-All files use same base name:
 - `research_report_20251104_topic_slug.md`
-- `research_report_20251104_topic_slug.html`
-- `research_report_20251104_topic_slug.pdf`
-
-**3. Also save copy to:** `~/.claude/research_output/` (internal tracking)
 
 ---
 
