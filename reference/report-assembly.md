@@ -29,8 +29,10 @@
 ### Phase 8.1: Setup
 
 ```bash
-# Create folder: ~/Documents/[TopicName]_Research_[YYYYMMDD]/
-mkdir -p ~/Documents/[folder_name]
+# Create folder: $PWD/research/[NNN_][TopicName]_Research_[YYYYMMDD]/
+# NNN = next sequential number (001, 002, ...) based on existing folders
+# Determine next number: ls $PWD/research/ | grep -oP '^\d+' | sort -n | tail -1, then +1
+mkdir -p $PWD/research/[NNN_][folder_name]
 
 # Initialize markdown file with frontmatter
 # Path: [folder]/research_report_[YYYYMMDD]_[slug].md
@@ -92,7 +94,7 @@ Update sources.json after each section. This survives context compaction and ena
 ## File Organization
 
 **1. Create dedicated folder:**
-- Location: `~/Documents/[TopicName]_Research_[YYYYMMDD]/`
+- Location: `$PWD/research/[NNN_][TopicName]_Research_[YYYYMMDD]/`
 - Clean topic name (remove special chars, use underscores)
 
 **2. File naming convention:**

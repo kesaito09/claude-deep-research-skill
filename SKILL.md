@@ -81,7 +81,7 @@ Mode Selection
 - Bibliography (COMPLETE - every citation, no placeholders)
 - Methodology Appendix
 
-**Output files (all to `~/Documents/[Topic]_Research_[YYYYMMDD]/`):**
+**Output files (all to `$PWD/research/[NNN_][Topic]_Research_[YYYYMMDD]/` where NNN is a zero-padded sequential number):**
 - Markdown (primary source)
 - HTML (McKinsey style, auto-opened)
 - PDF (professional print, auto-opened)
